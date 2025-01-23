@@ -55,8 +55,8 @@ app.post('/ussd', async (req, res) => {
                     try {
                         // Insert tenant details into the database
                         await db.query(
-                            'INSERT INTO tenants (fullName, doorNumber, idNumber, phoneNumber) VALUES (?, ?, ?, ?)',
-                            [fullName, doorNumber, idNumber, phoneNumber]
+                            'INSERT INTO tenants (fullName, doorNumber, idNumber, phoneNumber, sessionId, serviceCode) VALUES (?, ?, ?, ?,?,?)',
+                            [fullName, doorNumber, idNumber, phoneNumber, sessionId, serviceCode]
                         );
                         response = `END Registration successful!
                         Full Name: ${fullName}
